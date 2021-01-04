@@ -3,10 +3,19 @@
 .App {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
+    /*justify-content: space-between;*/
+    /*height: 100vh;*/
+    min-height: 100vh;
+}
+.main {
+    /*min-height:100%;*/
+    flex: 1;
 }
 .footer {
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
     font-size: 1.2rem;
     font-weight: bold;
 }
