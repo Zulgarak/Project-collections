@@ -4,7 +4,8 @@ const User = require('../models/User')
 const auth = require('../middleware/auth.middleware')
 const router = Router()
 
-router.get('/', auth, async (req, res) => {
+// router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const users = await User.find({})
     res.json(users)
@@ -12,10 +13,21 @@ router.get('/', auth, async (req, res) => {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
   }
 })
+// router.get('/:id', auth, async (req, res) => {
+//   try {
+//
+//     const user = await User.findById(req.params.id)
+//     console.log(user);
+//     res.json(user)
+//   } catch (e) {
+//     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
+//   }
+// })
 
 router.put('/', async (req, res) => {
 
   const obj = req.body
+  console.log(obj);
 
   if(Object.keys(obj).includes('_id')){
     const {status,_id} = req.body
@@ -35,24 +47,31 @@ router.put('/', async (req, res) => {
 })
 
 router.delete('/', async (req, res) => {
-  const obj = req.body
+  // const obj = req.body
+  // console.log(obj);
 
-  if(Object.keys(obj).includes('_id')){
-    const {_id} = req.body
-    const candidate = await User.findOneAndUpdate({_id:_id})
-    res.json({ success: true })
 
-  } else {
-    const arr = req.body
-    const arrayValues = Object.values(arr)
-    arrayValues.forEach( async function (item) {
-      const {_id} = item
-      const candidate = await User.findOneAndDelete({_id: _id})
-      res.json({ success: true })
-    })
-  }
+  // if(Object.keys(obj).includes('_id')){
+  //   console.log(1);
+  //   const {_id} = req.body
+  //   const candidate = await User.findOneAndUpdate({_id:_id})
+  //   res.json({ success: true })
+
+  // } else {
+  //   console.log(2);
+  //
+  //   const arr = req.body
+  //   console.log(arr);
+  //   const arrayValues = Object.values(arr)
+  //   arrayValues.forEach( async function (item) {
+  //     const {_id} = item
+  //     const candidate = await User.findOneAndDelete({_id: _id})
+  //     res.json({ success: true })
+  //   })
+  // }
 
   const {_id} = req.body
+  // console.log(req.body);
   const candidate = await User.findOneAndDelete({_id: req.body._id})
   res.json({ success: true })
 })

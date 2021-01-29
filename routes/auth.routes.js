@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const config =require('config')
+const config = require('config')
 const {check, validationResult} = require('express-validator')
 const User = require('../models/User')
 const router = Router()
@@ -23,6 +23,7 @@ router.post(
         })
       }
       const {name, email, password} = req.body
+      console.log(name);
 
       const candidate = await User.findOne({email})
 
@@ -79,7 +80,8 @@ router.post('/login',
         {expiresIn: '1h'}
       )
 
-      res.json({token, userId: user.id })
+      res.json({token, userAccess: user.access, userId: user.id,  message: 'Welcome!' })
+      // res.json({token, userId: user.id, userStatus: user.status, message: 'Welcome!' })
 
     } catch (e) {
       res.status(500).json({message: 'Internal Server Error'})

@@ -5,7 +5,7 @@ const schema = new Schema({
   password: {type: String, required: true},
   name: {type: String},
   createdAt: { type: Date, default: Date.now },
-  dateLogin: { type: Date, default: Date.now },
+  // dateLogin: { type: Date, default: Date.now },
   status: {type: Boolean, default: true},
   access: {type: String, enum: ['admin', 'user'], default: 'user'}
 })

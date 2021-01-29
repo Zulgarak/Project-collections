@@ -1,0 +1,8 @@
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'
+export const GET_CURRENT_USER = 'GET_CURRENT_USER'
+export const GET_USERS = 'GET_USERS'
+export const UPDATE_USER_STATUS = 'UPDATE_USER_STATUS'
+export const DELETE_USER = 'DELETE_USER'
+
+export const USER_LOADING = 'USER_LOADING'
+// export const GET_USER = 'GET_USER'
