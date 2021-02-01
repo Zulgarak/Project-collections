@@ -47,31 +47,8 @@ router.put('/', async (req, res) => {
 })
 
 router.delete('/', async (req, res) => {
-  // const obj = req.body
-  // console.log(obj);
-
-
-  // if(Object.keys(obj).includes('_id')){
-  //   console.log(1);
-  //   const {_id} = req.body
-  //   const candidate = await User.findOneAndUpdate({_id:_id})
-  //   res.json({ success: true })
-
-  // } else {
-  //   console.log(2);
-  //
-  //   const arr = req.body
-  //   console.log(arr);
-  //   const arrayValues = Object.values(arr)
-  //   arrayValues.forEach( async function (item) {
-  //     const {_id} = item
-  //     const candidate = await User.findOneAndDelete({_id: _id})
-  //     res.json({ success: true })
-  //   })
-  // }
 
   const {_id} = req.body
-  // console.log(req.body);
   const candidate = await User.findOneAndDelete({_id: req.body._id})
   res.json({ success: true })
 })

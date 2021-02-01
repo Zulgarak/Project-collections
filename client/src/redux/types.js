@@ -4,5 +4,10 @@ export const GET_USERS = 'GET_USERS'
 export const UPDATE_USER_STATUS = 'UPDATE_USER_STATUS'
 export const DELETE_USER = 'DELETE_USER'
 
+export const GET_COLLECTIONS = 'GET_COLLECTIONS'
+export const GET_COLLECTION = 'GET_COLLECTION'
+// export const GET_COLLECTIONS = 'GET_COLLECTIONS'
+// export const GET_COLLECTIONS = 'GET_COLLECTIONS'
+
 export const USER_LOADING = 'USER_LOADING'
 // export const GET_USER = 'GET_USER'

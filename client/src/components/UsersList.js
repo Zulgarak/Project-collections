@@ -45,26 +45,16 @@ export const UsersList = () => {
       dispatch(updateUser(updatedUser))
       // setDisabled(true)
       setIsCheckedArray(null)
-
-      // const checkedArray = isChecked
-      // checkedArray.fill(false)
-      // setIsChecked(checkedArray)
-      // setIsCheckedArray(null)
-
     }
     if (action === 'unblock') {
       updatedUser.status = true
       dispatch(updateUser(updatedUser))
       setIsCheckedArray(null)
-
     }
     if (action === 'delete') {
       // console.log(updatedUser);
       dispatch(deleteUser(updatedUser))
       setIsCheckedArray(null)
-      // console.log('delete');
-      // updateUser.status = true
-      // checkOwnAction(updateUser)
     }
     if (action === 'admin') {
       console.log('admin');
@@ -72,8 +62,6 @@ export const UsersList = () => {
       dispatch(updateUser(updatedUser))
       setIsCheckedArray(null)
     }
-
-
   }
 
   const onItemClick = (index, e) => {
@@ -92,19 +80,13 @@ export const UsersList = () => {
       setIsChecked(checkedArray)
     }
 
-
     const f = userPicked.filter((item)=> {return item._id === value})
     setIsCheckedArray(...f)
   }
 
-
-
   useEffect(() => {
     getAll()
-    console.log('useEffect');
-
   }, [])
-
 
   useEffect(() => {
     setUserPicked(users)
@@ -116,13 +98,6 @@ export const UsersList = () => {
     setIsChecked(x)
   // }, [users]);
   }, [users]);
-
-  // useEffect(() => {
-  //   const x = new Array(users.length)
-  //   setUserPicked(users)
-  //   x.fill(false)
-  //   setIsChecked(x)
-  // }, [users, userPicked])
 
   return (
     <>

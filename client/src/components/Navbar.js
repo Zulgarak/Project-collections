@@ -23,7 +23,12 @@ export const Navbar = () => {
       <div className="nav-wrapper container">
         <span className="brand-logo">LOGO</span>
         <ul id="nav-mobile" className="right">
-          {isAuthenticated && <li><Link to="/" onClick={logoutHandler}>Exit</Link></li>}
+          {isAuthenticated &&
+            <>
+          <li><Link to="/collections/create">Create collection</Link></li>
+          <li><Link to="/" onClick={logoutHandler}>Exit</Link></li>
+            </>
+          }
         </ul>
       </div>
     </nav>
